@@ -111,20 +111,19 @@ print("="*50)
 Вы можете настроить поведение генерации с помощью различных параметров:
 
 ```python
-from akgpt.main import AKGPT
+from akgpt import AKGPT
 
 client = AKGPT()
 
 prompt = "Напиши короткое стихотворение о роботах"
 model = "mistral"
-seed = 123
 system_prompt = "Ты поэт"
 
 result_poem = client.query(
-    prompt,
+    prompt=prompt,
     model=model,
-    seed=seed,
     system=system_prompt
+    # Параметр seed не поддерживается - удаляем его
 )
 
 if result_poem:
